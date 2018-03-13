@@ -1,0 +1,25 @@
+insert = [cuser_sn, cuser_n, cuser_d, cuser_l,cuser_p]
+                    elements_gs.append_row(insert)
+                    
+                    #record the connection
+                    
+                    print(tweetid)
+                    print(connections_gs.col_values(5))
+                    #if the current tweet hasn't already been fully recorded
+                    if tweetid not in connections_gs.col_values(5):
+                        
+                        
+                        #andd if the current connection user being examined is the last in the connections list
+                        if cfull_user.screen_name == connections[len(connections)-1]:
+                            insert = [user_sn, cuser_sn, tweettext, tweetdate, tweetid]
+                            connections_gs.append_row(insert)
+                            print ("added to connections (last add of this tweet): "+str(insert))
+                        else:
+                            #add all the terms about the connection EXCEPT the tweet id
+                            insert = [user_sn, cuser_sn, tweettext, tweetdate, ""]
+                            connections_gs.append_row(insert)
+                            print ("added to connections: "+str(insert))
+                                
+                            print("")
+                except:
+                    i=0
